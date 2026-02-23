@@ -77,7 +77,7 @@ public class Hopper extends SubsystemBase {
     }   
 
     public SequentialCommandGroup feed_command() {
-      return new RunCommand(() -> feed(), this).andThen(() -> stop_feeding());
+      return new RunCommand(this::feed, this).andThen(() -> stop_feeding());
    }
 
 
