@@ -23,6 +23,7 @@ import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.Hopper;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 
 public class RobotContainer {
@@ -53,6 +54,7 @@ public class RobotContainer {
 
     public final Feeder feeder = new Feeder();
     public final Hopper hopper = new Hopper();
+    public final Intake intake = new Intake();
 
 
 
@@ -93,6 +95,7 @@ public class RobotContainer {
         joystick.b().whileTrue(drivetrain.applyRequest(() ->
             point.withModuleDirection(new Rotation2d(-joystick.getLeftY(), -joystick.getLeftX()))
         ));
+        
 
         // Run SysId routines when holding back/start and X/Y.
         // Note that each routine should be run exactly once in a single log.
@@ -112,7 +115,7 @@ public class RobotContainer {
 
         // Example: Control the shooter velocity with the right trigger axis and x button
         joystick.x().whileTrue(new InstantCommand(() -> shooter.ShooterVelocity(shooter.k_maxShooterRPM.times(joystick.getRightTriggerAxis())), shooter));
-
+        joystick.y().toggleOnTrue(intake.intaketoggle());
 
     }
 

@@ -27,7 +27,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Hopper extends SubsystemBase {
     
     //identifying motor + encoder with their ids 
-    final TalonFX m_hopper_motor = new TalonFX(6);  
+    final TalonFX m_hopper_motor = new TalonFX(51);  
     //final m_hopper_motor.setControl(new DutyCycleOut(1.0)); // 100% full speed positive.
     // final CANcoder m_hopper_CaNcoder = new CANcoder(1); //placeholder id
     private final VoltageOut m_VoltageOut = new VoltageOut(0); 
